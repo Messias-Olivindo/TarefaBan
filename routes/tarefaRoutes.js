@@ -12,4 +12,5 @@ router.get('/:id', TarefaController.getTarefaById);
 router.put('/:id', TarefaController.updateTarefa);
 router.delete('/:id', TarefaController.deleteTarefa);
 
+//exportar as rotas da tarefa
 module.exports = router;

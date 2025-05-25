@@ -114,19 +114,19 @@
 &emsp; Criação da tabela de usuários:
 
 ````
-CREATE TABLE usuarios(
+CREATE TABLE IF NOT EXISTS usuario(
     id SERIAL PRIMARY KEY,
     nome VARCHAR(80) NOT NULL,
-    email VARCHAR(320) NOT NULL,
+    email VARCHAR(80) NOT NULL,
     senha VARCHAR(20) NOT NULL,
-    created_at TIMESTAMP DEAFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEAFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP    
 );
 ````
 &emsp; Criação da tabela de tarefas:
 
 ````
-CREATE TABLE tarefas (
+CREATE TABLE IF NOT EXISTS tarefas (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(60) NOT NULL,
     descricao TEXT,
@@ -141,7 +141,7 @@ CREATE TABLE tarefas (
 &emsp; Criação da tabela de categoria:
 
 ````
-CREATE TABLE categoria(
+CREATE TABLE IF NOT EXISTS categoria(
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(60) NOT NULL
 );
@@ -150,11 +150,11 @@ CREATE TABLE categoria(
 &emsp; Criação da tabela de notificação:
 
 ````
-CREATE TABLE notificacao(
+CREATE TABLE IF NOT EXISTS notificacao (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(60),
     descricao TEXT,
-    id_tarefa REFERENCES tarefas(id) ON DELETE CASCADE,
-    created_at DEFAULT CURRENT_TIMESTAMP
+    id_tarefa INTEGER REFERENCES tarefas(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ````
