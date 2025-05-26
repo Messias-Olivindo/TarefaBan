@@ -3,7 +3,12 @@
 ## Sumário
 
 [1. Introdução](#c1)
+
 [2. Diagrama do banco de dados](#c2)
+
+[3. Arquitetura MVC](#c3)
+
+[4. WebAPI](#c4)
 
 ## <a name='c1'>1. Introdução</a>
 
@@ -178,7 +183,7 @@ CREATE TABLE IF NOT EXISTS notificacao (
 <img src="../assets/assetsWadReadme/arquiteturaMVC.png">
 </div>
 <div align="center">
-<sub>Fonte: Material produzido pelos autor (2025)</sub>
+<sub>Fonte: Material produzido pelo autor (2025)</sub>
 </div>
 
 ## <a name='c4'>4. WebAPI</a>
