@@ -158,3 +158,60 @@ CREATE TABLE IF NOT EXISTS notificacao (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ````
+
+## <a name='c3'>3. Arquitetura MVC</a>
+
+&emsp; A arquitetura MVC é um padrão de design de software que divide a estrutura do projeto em: Models, Controllers e Views. A função de cada elemento é explicitada da seguinte maneira:
+
+- Models: Responsável por fazer as requisições e alterações no banco de dados.
+
+- Controllers: Responsável por fazer a comunicação entre o views e o models, enviando as requisições e respostas entre os elementos.
+
+- Views: Responsável pela resposta visual do sistema, mostrando as respostas e como fazer as requisições.
+
+&emsp; Dessa forma, elaborou-se o seguinte diagrama da arquitetura MVC do TarefaBan:
+
+<div align="center">
+<sup>Figura 2: Diagrama da Arquitetura do MVC</sup>
+</div>
+<div align="center">
+<img src="../assets/assetsWadReadme/arquiteturaMVC.png">
+</div>
+<div align="center">
+<sub>Fonte: Material produzido pelos autor (2025)</sub>
+</div>
+
+## <a name='c4'>4. WebAPI</a>
+
+&emsp; API é um conjunto de regras e protocolos para que ocorra a transferência de informações entre os componentes da aplicação.
+
+&emsp; Sob essa perspectiva, construiu-se o seguinte quadro com as APIs:
+
+<div align="center">
+<sup>Quadro 5: Informações da API</sup>
+</div>
+
+| **Rota** | **Método** | **Header** | **Body** | **Formato de Response**
+| :---: | :---: | :---: | :---: | :---: |
+/usuario | POST | application/json | nome, email, senha | JSON
+/usuario | GET | application/json | - | JSON
+/usuario/:id | GET | application/json | id | JSON
+/usuario/:id | PUT | application/json | id, nome, email, senha | JSON
+/usuario/:id | DELETE | application/json | id | JSON
+/tarefa | POST | application/json | titulo, descricao, estado, importancia, prazo | JSON
+/tarefa | GET | application/json | - | JSON
+/tarefa/:id | GET | application/json | id | JSON
+/tarefa/:id | PUT | application/json | id, titulo, descricao, estado, importancia, prazo | JSON
+/tarefa/:id | DELETE | application/json | id | JSON
+/notificacao | POST | application/json | titulo, descricao, id_tarefa | JSON
+/notificacao | GET | application/json | -  | JSON
+/notificacao/:id | GET | application/json | id | JSON
+/notificacao/:id | DELETE | application/json |  id| JSON
+/categoria | POST  | application/json | titulo | JSON
+/categoria | GET | application/json | - | JSON
+/categoria/:id | GET | application/json | id | JSON
+/categoria/:id | DELETE | application/json | id | JSON
+
+<div align="center">
+<sub>Fonte: Material produzido pelo autor (2025)</sub>
+</div>
