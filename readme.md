@@ -13,21 +13,36 @@ TarefaBan/
 ├── config/                # Arquivos de configuração (ex: conexão com banco)
 │   └── database.js
 ├── controllers/           # Lógica de controle das requisições
-│   └── HomeController.js
+│   └── userController.js
+|   └── tarefaController.js
+|   └── notificacaoController.js
+|   └── categoriaController.js
 ├── models/                # Definição de modelos de dados (estrutura do banco)
-│   └── User.js
+|   └── usuario.js
+│   └── tarefa.js
+|   └── notificacao.js
+|   └── categoria.js
 ├── routes/                # Definição das rotas do sistema
-│   └── index.js
-├── services/              # Serviços auxiliares do sistema
-│   └── userService.js
+│   └── usuarioRoutes.js
+|   └── tarefaRoutes.js
+|   └── notificacaoRoutes.js
+|   └── categoriaRoutes.js
 ├── assets/                # Arquivos públicos como imagens e fontes
 |   └── assetsWadReadme/   # Arquivos de imagem do WAD e Readme     
 ├── scripts/               # Arquivos de JavaScript públicos
+|   └── migrations # Arquivos com as migrations para criar as tabelas
+|       └── 20250525_createUsuario.js
+|       └── 20250525_createTarefas.js
+|       └── 20250525_createNotificacao.js
+|       └── 20250525_createCategoria.js
+|   └── runMigrations.js # Rodas as migrations
+|   └── init.sql # Arquivo SQL com as tabelas
+|   └── runSql # Rodar o arquivo SQL
 ├── styles/                # Arquivos CSS públicos
 ├── tests/                 # Arquivos de testes unitários
 │   └── example.test.js
 ├── .gitignore             # Arquivo para ignorar arquivos no Git
-├── .env.example           # Arquivo de exemplo para variáveis de ambiente
+├── .env.example           # Arquivo deve ser renomeado para .env após colocar as informações do banco de dados
 ├── jest.config.js         # Arquivo de configuração do Jest
 ├── package-lock.json      # Gerenciador de dependências do Node.js
 ├── package.json           # Gerenciador de dependências do Node.js
@@ -64,6 +79,47 @@ npm install
 ````
 
 **Passo 4:**
+Ainda no terminal baixe os módulos node com o seguinte comando
+
+````
+npm install dotenv pg cors
+````
+
+**Passo 5:**
+Antes de continuar é necessário que você conecte o seu banco de dados Postgresql com a aplicação da seguinte maneira:
+
+- Preencha as informações do seu banco de dados no .env.example
+
+````
+DB_HOST = 
+DB_PORT = 
+DB_USER = 
+DB_PASSWORD = 
+DB_NAME = 
+DB_SSL=
+````
+
+Após preenchê-las, mude o nome do arquivo para .env
+
+**Passo 6:**
+
+Com o banco de dados conectado, é necessário que você crie as tabelas nele escolhendo algum dos seguintes comando.
+
+- Você pode criar rodando as migrations com o seguinte comando no terminal:
+
+````
+npm run migrations
+````
+
+- Ou você pode rodar o arquivo SQL com o seguinte comando no terminal:
+
+````
+npm run runSql
+````
+
+É necessário rodar somente um desses comandos, não precisa rodar os dois!
+
+**Passo 7:**
 Para rodar o projeto, basta colocar o seguinte comando no terminal da pasta do projeto:
 
 ````
