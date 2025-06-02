@@ -13,12 +13,12 @@ const port = 3000; //Guarda a porta que o site será rodado
 app.use(cors());
 app.use(bodyParser.json());
 
-//Usar as rotas definidas
+//Usar as rotas de API definidas 
 //método use serve para montar funções middleware
-app.use('/usuario', UsuarioRoutes); //acessa o endpoint da api e realizas os métodos de api definido no módulo exportado
-app.use('/tarefa', TarefaRoutes);
-app.use('/notificacao', NotificacaoRoutes);
-app.use('/categoria', CategoriaRoutes);
+app.use('/api/usuario', UsuarioRoutes); //acessa o endpoint da api e realizas os métodos de api definido no módulo exportado
+app.use('/api/tarefa', TarefaRoutes);
+app.use('/api/notificacao', NotificacaoRoutes);
+app.use('/api/categoria', CategoriaRoutes);
 
 //Começar a aplicação
 //método listen é para iniciar um server e faz iniciar as conexões de entrada em uma porta específica. .listen(porta, nome do host, fila de conexões pendentes, função callback para realizar algo)
