@@ -2,6 +2,8 @@ const express = require('express'); //chama o middleware, responsável por facil
 const bodyParser = require('body-parser'); //chama o body-parser, um middleware responsável por permitir a análise do corpo das requisições HTTP
 const cors = require('cors'); // um mecanismo do node.js que permite definir o que os outros websites são permitidos a acessar em relação a recursos. Garante a segurança e previne acessos não autorizados diferentes origens
 const pool = require('./config/database'); //Chamar a conexão com o banco de dados
+
+const FrontRoutes = require('./routes/frontRoutes'); //importa as rotas de views
 const UsuarioRoutes = require('./routes/usuarioRoutes'); //importa as rotas criadas para os usuarios
 const TarefaRoutes = require('./routes/tarefaRoutes'); //importa as rotas criadas para as tarefas
 const NotificacaoRoutes = require('./routes/notificacaoRoutes'); //importa as rotas criadas para as notificações
@@ -23,6 +25,9 @@ pool.connect()
   .then(() => {
     //informar que ocorreu a conexão com o banco de dados
     console.log("Conexão com o banco de dados realizada com sucesso");
+
+    //Usar a rota de views
+    app.use('/', FrontRoutes);
 
     //Usar as rotas de API definidas 
     //método use serve para montar funções middleware
