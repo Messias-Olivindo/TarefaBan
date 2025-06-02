@@ -15,6 +15,4 @@ const pool = new Pool({
   }
 });
 
-console.log("Conexão com o banco de dados realizada com sucesso")
-
 module.exports = {pool}; //poder exportar a pool para arquivos em outros arquivos

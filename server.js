@@ -1,6 +1,7 @@
 const express = require('express'); //chama o middleware, responsável por facilitar a transferência de informação entre aplicações e serviços
 const bodyParser = require('body-parser'); //chama o body-parser, um middleware responsável por permitir a análise do corpo das requisições HTTP
 const cors = require('cors'); // um mecanismo do node.js que permite definir o que os outros websites são permitidos a acessar em relação a recursos. Garante a segurança e previne acessos não autorizados diferentes origens
+const pool = require('./config/database'); //Chamar a conexão com o banco de dados
 const UsuarioRoutes = require('./routes/usuarioRoutes'); //importa as rotas criadas para os usuarios
 const TarefaRoutes = require('./routes/tarefaRoutes'); //importa as rotas criadas para as tarefas
 const NotificacaoRoutes = require('./routes/notificacaoRoutes'); //importa as rotas criadas para as notificações
@@ -13,15 +14,32 @@ const port = 3000; //Guarda a porta que o site será rodado
 app.use(cors());
 app.use(bodyParser.json());
 
-//Usar as rotas de API definidas 
-//método use serve para montar funções middleware
-app.use('/api/usuario', UsuarioRoutes); //acessa o endpoint da api e realizas os métodos de api definido no módulo exportado
-app.use('/api/tarefa', TarefaRoutes);
-app.use('/api/notificacao', NotificacaoRoutes);
-app.use('/api/categoria', CategoriaRoutes);
+//habilitar o ejs
+app.set('view engine', 'ejs');
 
-//Começar a aplicação
-//método listen é para iniciar um server e faz iniciar as conexões de entrada em uma porta específica. .listen(porta, nome do host, fila de conexões pendentes, função callback para realizar algo)
-app.listen(port, () => {
-  console.log(`Server rodando na porta ${port}, acesse no link: http://localhost:3000`);
-})
+//Começar a aplicação somente quando for conectado com o banco de dados
+pool.connect()
+//usar .then e .catch para lidar com o sucesso ou falha com a conexão com o banco de dados
+  .then(() => {
+    //informar que ocorreu a conexão com o banco de dados
+    console.log("Conexão com o banco de dados realizada com sucesso");
+
+    //Usar as rotas de API definidas 
+    //método use serve para montar funções middleware
+    app.use('/api/usuario', UsuarioRoutes); //acessa o endpoint da api e realizas os métodos de api definido no módulo exportado
+    app.use('/api/tarefa', TarefaRoutes);
+    app.use('/api/notificacao', NotificacaoRoutes);
+    app.use('/api/categoria', CategoriaRoutes);
+    
+    //Começar a aplicação
+    //método listen é para iniciar um server e faz iniciar as conexões de entrada em uma porta específica. .listen(porta, nome do host, fila de conexões pendentes, função callback para realizar algo)
+    app.listen(port, () => {
+      console.log(`Server rodando na porta ${port}, acesse no link: http://localhost:3000`);
+    })
+
+  })
+
+  //caso der errado
+  .catch((err) => {
+    console.log("Erro ao se conectar com o banco de dados: ", err);
+  });
