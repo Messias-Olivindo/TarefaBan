@@ -9,9 +9,10 @@ const path = require('path');
 router.get('/', (req, res) => {
     //renderizar a página
     //path join para criar um caminha absoluto para acessar o arquivo
+    //poderia ser feito sem o path já que o render já procura a pasta views do projeto
     res.render(path.join(__dirname, '../views/layout/main'), {
         //Informações que serão passadas a esse arquivo e poderão ser acessadas depois com o <%>
-        pageTiTle: 'Página inicial',
+        pageTitle: 'Página inicial',
         content: path.join(__dirname, '../views/pages/home') 
     });
 });

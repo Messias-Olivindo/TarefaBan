@@ -1,7 +1,7 @@
 const express = require('express'); //chama o middleware, responsável por facilitar a transferência de informação entre aplicações e serviços
 const bodyParser = require('body-parser'); //chama o body-parser, um middleware responsável por permitir a análise do corpo das requisições HTTP
 const cors = require('cors'); // um mecanismo do node.js que permite definir o que os outros websites são permitidos a acessar em relação a recursos. Garante a segurança e previne acessos não autorizados diferentes origens
-const pool = require('./config/database'); //Chamar a conexão com o banco de dados
+const {pool} = require('./config/database'); //Chamar a conexão com o banco de dados
 
 const FrontRoutes = require('./routes/frontRoutes'); //importa as rotas de views
 const UsuarioRoutes = require('./routes/usuarioRoutes'); //importa as rotas criadas para os usuarios
