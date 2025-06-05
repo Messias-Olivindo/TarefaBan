@@ -8,7 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrations": "node scripts\runMigrations.js",
-    "runSql": "node scripts\runSql.js"
+    "runSql": "node scripts\runSql.js",
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

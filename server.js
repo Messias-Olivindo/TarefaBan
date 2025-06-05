@@ -2,6 +2,7 @@ const express = require('express'); //chama o middleware, responsável por facil
 const bodyParser = require('body-parser'); //chama o body-parser, um middleware responsável por permitir a análise do corpo das requisições HTTP
 const cors = require('cors'); // um mecanismo do node.js que permite definir o que os outros websites são permitidos a acessar em relação a recursos. Garante a segurança e previne acessos não autorizados diferentes origens
 const {pool} = require('./config/database'); //Chamar a conexão com o banco de dados
+const path = require('path');
 
 const FrontRoutes = require('./routes/frontRoutes'); //importa as rotas de views
 const UsuarioRoutes = require('./routes/usuarioRoutes'); //importa as rotas criadas para os usuarios
@@ -18,6 +19,8 @@ app.use(bodyParser.json());
 
 //habilitar o ejs
 app.set('view engine', 'ejs');
+//usar os arquivos estáticos do public
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Começar a aplicação somente quando for conectado com o banco de dados
 pool.connect()
