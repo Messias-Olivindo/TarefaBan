@@ -16,6 +16,7 @@ const port = 3000; //Guarda a porta que o site será rodado
 //Usar os middlewares -> Acessam o request object e o response object 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 
 //habilitar o ejs
 app.set('view engine', 'ejs');

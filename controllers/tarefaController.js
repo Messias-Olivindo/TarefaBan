@@ -27,7 +27,7 @@ const TarefaController = {
         try{
             //constante para guardar o pedido do banco de dados
             const tarefas = await TarefaModel.getAllTarefa();
-            res.status(200).json(tarefas);
+            return res.status(200).json(tarefas);
 
         } catch(error) {
             res.status(500).json({
@@ -67,8 +67,9 @@ const TarefaController = {
         //analisar se deu certo
         try{
             //constante para guara=dar as informações que vão ser mandadas para o banco de dados
-            const {id, titulo, descricao, estado, importancia, prazo} = req.body;
+            const { titulo, descricao, estado, importancia, prazo} = req.body;
             //constante para levar as informações para o models e guardar o resultado
+            const id = req.params.id;
             const tarefaAtualizada = await TarefaModel.updateTarefa(id, titulo, descricao, estado, importancia, prazo);
             res.status(200).json(tarefaAtualizada);
 

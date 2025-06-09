@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 //importar o path 
 const path = require('path');
+const TarefaController = require('../controllers/tarefaController');
 
 //Página inicial
 router.get('/', (req, res) => {
@@ -23,6 +24,34 @@ router.get('/usuario', (req, res) => {
         pageTitle: 'Página de usuários',
         content: path.join(__dirname, '../views/pages/teste')
     });
+});
+
+//página do quadro kanban
+router.get('/quadro', (req, res) =>{
+
+    res.render(path.join(__dirname, '../views/layout/main'), {
+        pageTitle: 'Quadro',
+        content: path.join(__dirname, '../views/pages/quadro'),
+    });
+});
+
+//página de adicionar uma tarefa
+router.get('/adicionar', (req, res) => {
+    res.render(path.join(__dirname, '../views/layout/main'),{
+        pageTitle: 'Adicionar',
+        content: path.join(__dirname, '../views/partials/addTarefa'),
+    });
+});
+
+router.get('/editar/:id', async (req, res) => {
+    const id = req.params.id;
+    // Busca a tarefa pelo ID, por exemplo na API ou banco
+    const response = await fetch(`http://localhost:3000/api/tarefa/${id}`);
+    const tarefaArray = await response.json();
+     const tarefa = tarefaArray[0];
+
+    // Renderiza a view de edição, passando a tarefa para preencher os inputs
+    res.render('editar', { tarefa });
 });
 
 //exportar as rotas

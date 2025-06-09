@@ -6,7 +6,7 @@ const router = express.Router();
 const TarefaController = require('../controllers/tarefaController');
 
 //definir as rotas
-router.post('', TarefaController.createTarefa);
+router.post('/', TarefaController.createTarefa);
 router.get('', TarefaController.getAllTarefa);
 router.get('/:id', TarefaController.getTarefaById);
 router.put('/:id', TarefaController.updateTarefa);
