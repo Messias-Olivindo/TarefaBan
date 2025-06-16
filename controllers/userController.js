@@ -94,18 +94,3 @@ const UsuarioController = {
 };
 
 module.exports = UsuarioController;
-
-// (async () => {
-//     try {
-//         const user = await UsuarioModel.getUsuarioById('1f695ab6-267e-4a80-b51f-a5102675d7ab');
-//         if(user){
-//             console.log("Achou");
-//         }
-//         else{
-//             console.log("Nada");
-//         }
-
-//     } catch (error) {
-//         console.error("Erro encontrado: ", error);
-//     }
-// })();

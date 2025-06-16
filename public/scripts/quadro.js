@@ -13,6 +13,9 @@ function append(parent, el) {
 
 //Pegar a coluna de a fazer
 const aFazer = document.getElementById("aFazer");
+const fazendo = document.getElementById("fazendo");
+const feito = document.getElementById("feito");
+
 
 //Realizar o fetch de Get
 fetch(url)
@@ -25,39 +28,101 @@ fetch(url)
             //criar uma div
             let div = createNode('div');
             //estilizar a div
-            div.classList.add('grid', 'grid-cols-3', 'col-start-2', 'col-span-5', 'h-60', 'rounded-lg', 'border', 'border-solid', 'border-black/20', 'bg-white', 'mt-4');
+            div.classList.add('grid', 'grid-cols-3', 'col-start-2', 'col-span-5', 'h-60', 'rounded-lg', 'border', 'border-solid', 'border-black/20', 'bg-white', 'p-3', 'm-3');
             div.setAttribute('data-id', tarefa.id);
 
-            //Inserir informação na div
-            div.innerHTML = `
-                <h3 class="text-2xl col-span-full text-left">
-                ${tarefa.titulo}
-                </h3>
-                <p class="text-xs col-start-1 text-left">
-                    ${tarefa.estado}</p>
-                <p class="text-xs col-start-2 col-span-2 ">
-                    ${tarefa.importancia}</p>
-                <p class="text-xs col-start-1 text-left">
-                    ${data}</p>
-                <p class="col-start-1 col-end-auto">
-                    ${tarefa.descricao}</p>
-                
-                    <!--Imagens de deletar e alterar-->
-                    <button onclick=irParaEditar(this)>
-                        <img src="/assets/pencil.png" class="col-start-2 justify-self-center w-8 h-8" >
-                    </button>
+            if(tarefa.estado === "do"){
+                //Inserir informação na div
+                div.innerHTML = `
+                    <h3 class="text-2xl col-span-full text-left">
+                    ${tarefa.titulo}
+                    </h3>
+                    <p class="text-xs col-start-1 text-left">
+                        A fazer</p>
+                    <p class="text-xs col-start-2 col-span-2 ">
+                        ${tarefa.importancia}</p>
+                    <p class="text-xs col-start-1 text-left">
+                        ${data}</p>
+                    <p class="col-start-1 col-end-auto">
+                        ${tarefa.descricao}</p>
+                    
+                        <!--Imagens de deletar e alterar-->
+                        <button onclick=irParaEditar(this)>
+                            <img src="/assets/pencil.png" class="col-start-2 justify-self-center w-8 h-8" >
+                        </button>
+    
+                        <button onclick = deleteTarefa(this)>
+                            <img src="/assets/trash.png" class="col-start-3 justify-self-center w-8 h-8">
+                        </button>
+                        `
+                //Colocar a div na coluna
+                append(aFazer, div);
 
-                    <button onclick = deleteTarefa(this)>
-                        <img src="/assets/trash.png" class="col-start-3 justify-self-center w-8 h-8">
-                    </button>
-                    `
-            //Colocar a div na coluna
-            append(aFazer, div);
+            }
+            if(tarefa.estado === "doing"){
+                //Inserir informação na div
+                div.innerHTML = `
+                    <h3 class="text-2xl col-span-full text-left">
+                    ${tarefa.titulo}
+                    </h3>
+                    <p class="text-xs col-start-1 text-left">
+                        Fazendo</p>
+                    <p class="text-xs col-start-2 col-span-2 ">
+                        ${tarefa.importancia}</p>
+                    <p class="text-xs col-start-1 text-left">
+                        ${data}</p>
+                    <p class="col-start-1 col-end-auto">
+                        ${tarefa.descricao}</p>
+                    
+                        <!--Imagens de deletar e alterar-->
+                        <button onclick=irParaEditar(this)>
+                            <img src="/assets/pencil.png" class="col-start-2 justify-self-center w-8 h-8" >
+                        </button>
+    
+                        <button onclick = deleteTarefa(this)>
+                            <img src="/assets/trash.png" class="col-start-3 justify-self-center w-8 h-8">
+                        </button>
+                        `
+                //Colocar a div na coluna
+                append(fazendo, div);
+
+            }
+            if(tarefa.estado === "done"){
+                //Inserir informação na div
+                div.innerHTML = `
+                    <h3 class="text-2xl col-span-full text-left">
+                    ${tarefa.titulo}
+                    </h3>
+                    <p class="text-xs col-start-1 text-left">
+                        Feito</p>
+                    <p class="text-xs col-start-2 col-span-2 ">
+                        ${tarefa.importancia}</p>
+                    <p class="text-xs col-start-1 text-left">
+                        ${data}</p>
+                    <p class="col-start-1 col-end-auto">
+                        ${tarefa.descricao}</p>
+                    
+                        <!--Imagens de deletar e alterar-->
+                        <button onclick=irParaEditar(this)>
+                            <img src="/assets/pencil.png" class="col-start-2 justify-self-center w-8 h-8" >
+                        </button>
+    
+                        <button onclick = deleteTarefa(this)>
+                            <img src="/assets/trash.png" class="col-start-3 justify-self-center w-8 h-8">
+                        </button>
+                        `
+                //Colocar a div na coluna
+                append(feito, div);
+
+            }
+
         })
     })
     .catch((error) => {
         console.log("Erro encontrado: " + error);
     });
+    
+
 
 //Realizar o fetch de delete
 function deleteTarefa(id) {
@@ -74,7 +139,6 @@ function deleteTarefa(id) {
     fetch(request)
         .then((resp)=> {return resp.json()})
         .then((data) => {
-            console.log('Tarefa deletada: ', data);
             location.reload();
         })
         .catch((error) => {

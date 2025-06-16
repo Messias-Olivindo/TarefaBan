@@ -18,7 +18,6 @@ function fetchData() {
         prazo: prazo
     }
 
-
     //passar uma requisição instanciada como uma
     var request = new Request(url, {
         method: 'POST',
@@ -31,7 +30,7 @@ function fetchData() {
 
     fetch(request)
         .then(() => {
-            console.log("Deu certo");
+             window.location.href = "/quadro"; 
         })
         .catch((error) => {
             console.log("Erro encontrado: " + error)

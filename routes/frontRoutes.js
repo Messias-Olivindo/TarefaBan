@@ -4,7 +4,6 @@ const express = require('express');
 const router = express.Router();
 //importar o path 
 const path = require('path');
-const TarefaController = require('../controllers/tarefaController');
 
 //Página inicial
 router.get('/', (req, res) => {
@@ -39,7 +38,7 @@ router.get('/quadro', (req, res) =>{
 router.get('/adicionar', (req, res) => {
     res.render(path.join(__dirname, '../views/layout/main'),{
         pageTitle: 'Adicionar',
-        content: path.join(__dirname, '../views/partials/addTarefa'),
+        content: path.join(__dirname, '../views/pages/addTarefa'),
     });
 });
 
@@ -51,7 +50,11 @@ router.get('/editar/:id', async (req, res) => {
      const tarefa = tarefaArray[0];
 
     // Renderiza a view de edição, passando a tarefa para preencher os inputs
-    res.render('editar', { tarefa });
+    res.render(path.join(__dirname, '../views/layout/main'),{
+        pageTitle: 'Editar',
+        content: path.join(__dirname, '../views/pages/editTarefa'),
+        tarefa
+    });
 });
 
 //exportar as rotas

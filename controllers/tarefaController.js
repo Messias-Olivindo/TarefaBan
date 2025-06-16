@@ -10,6 +10,7 @@ const TarefaController = {
             const { titulo, descricao, estado, importancia, prazo } = req.body
             //mandar as novas informações para criar a nova tarefa
             const novaTarefa = await TarefaModel.createTarefa(titulo, descricao, estado, importancia, prazo);
+            consoele.log(novaTarefa);
             //mostrar a nova tarefa
             res.status(201).json(novaTarefa);
 

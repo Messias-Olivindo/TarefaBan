@@ -59,8 +59,3 @@ const TarefaModel = {
 
 //Exportar o models de tarefa
 module.exports = TarefaModel;
-
-// ( async () => {
-//     const mostrar = await TarefaModel.deleteTarefa('1b0ce738-4fe0-4708-a4d6-f25fe661ba9a');
-//     console.log(mostrar);
-// })();

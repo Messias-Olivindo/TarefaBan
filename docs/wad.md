@@ -220,3 +220,47 @@ CREATE TABLE IF NOT EXISTS notificacao (
 <div align="center">
 <sub>Fonte: Material produzido pelo autor (2025)</sub>
 </div>
+
+## <a name='c5'>5. Decisões técnicas</a>
+
+- **Node.js**
+Ambiente de execução JavaScript fora do servidor.
+Usado para construir o backend da aplicação Web. Criando servidores, lidar com requisições HTTP e acessar o banco de dados.
+
+- **Express.js**
+Framework Web para Node.js
+Usado para a criação de APIs, servidor web, organização de rotas e lógica bakcend.
+
+- **EJS (Embedded JavaScript Templates)**
+Template engine da aplicação.
+Usado gerar o HTML dinâmico usando o JavaScript embtuido para renderizar dados antes de enviar ao cliente.
+
+- **PostgreSQL**
+Sistema de Gerenciamento de Banco de Dados (SGBD)
+Usado para armazenar e organizar os dados em tabelas relacionais.
+
+- **Tailwind CSS**
+Framework de CSS utilitário.
+Usado para a estilização do projeto por ser mais fácil a sua utilização direta no ejs e pelo seu uso de classes.
+
+## <a name ='c6'>6. Principais aprendizados e desaios enfrentados</a>
+
+&emsp; A construção da aplicação web foi um caminho repleto de aprendizados e, sobretudo, da aplicação desses conhecimentos. Os principais aprendizados foram relacionados ao uso de tecnologias de desenvolvimento web como o EJS e o Tailwind CSS, além da aplicação de uma arquitetura de software. As principais dificuldades foram o prazo curto de entrega e as muitas funcionalidades que eu planejei colocar mas não foi possível devido a complexidade de adicioná-las, como a possibilidade de arrastar os cards entre as colunas do quadro KanBan. Em relação aos aprendizados e desafios enfrentados durante a elaboração do projeto, realizou-se a seguinte listagem:
+
+### Aprendizados
+
+- Primeiro projeto web fullstack realizado.
+- Consolidação do aprendizado sobre a arquitetura MVC.
+- Aplicação das tecnologias: EJS, Tailwind CSS, Node.js, Express.js e PostergreSQL.
+- Primeira aplicação com o código modularizado.
+- Consolidação do aprendizado em API.
+
+### Desafios enfrentados
+
+- Utilização do Fetch API para pegar, editar e apagar as tasks.
+- Eventos DOM para a criação dos cards.
+- Uso de rotas das APIs para adicionar e atualizar tasks.
+
+## <a name='c7'>7. Pontos bons e passos futuros</a>
+
+&emsp; Alguns pontos que foram de sucesso foi a estilização da plataforma - que ainda é possível melhorar- e a funcionalidade de editar e criar novas tasks. Como metas futuras, tem-se a possibilidade de mover o card entre as colunas, adição de uma tela de carregamento, implementação das outras entidades da aplicação - categoria, notificação e usuário -, adicionar autentificação de usuários e mudar o nome das variáveis para termos em inglês.

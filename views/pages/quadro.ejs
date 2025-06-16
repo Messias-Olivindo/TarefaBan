@@ -1,5 +1,5 @@
-<div class="h-screen mb-4">
-    <main class="grid grid-cols-12 h-screen mb-4">
+<div class="h-full mb-4">
+    <main class="grid grid-cols-12 h-full mb-4">
 
 
         <!--Título da página-->
@@ -8,7 +8,9 @@
         <!--Botão de adicionar uma nova tarefa-->
         <a href='/adicionar'
             class="col-span-2 col-start-10 text-base border-[2px] border-[#021E73]/20 border-solid mb-8 py-2 rounded-lg bg-[#021E73] text-white">
-            Adicionar
+            <span class = "flex justify-center">
+                Adicionar
+            </span>
         </a>
 
         <!--Quadros Kanban-->
@@ -25,39 +27,19 @@
             </h2>
 
             <!--Coluna de a fazer-->
-            <div class="col-start-1 col-span-3 grid grid-cols-7 text-center rounded-lg border border-solid border-black/20  bg-zinc-50"
+            <div class="col-start-1 col-span-3 text-center rounded-lg border border-solid border-black/20  bg-zinc-50 h-full min-h-[100px]"
                 id="aFazer">
-                <!--Card-->
-
-                <!-- <div class="grid grid-cols-3 col-start-2 col-span-5 w- h-60 rounded-lg border border-solid border-black/20 bg-white mt-4 p-2" >
-
-                <h3 class="text-2xl col-span-full text-left" id="tituloTarefa">
-                </h3>
-                <p class="text-xs col-start-1 text-left" id="estadoTarefa">
-                    Estado: x</p>
-                <p class="text-xs col-start-2 col-span-2 " id="importanciaTarefa">
-                    Importância: x</p>
-                <p class="text-xs col-start-1 text-left" id="prazoTarefa">
-                    Prazo: x</p>
-                <p class="col-start-1 col-span-full" id="descricaoTarefa">
-                    lorem lorem lorem lorem lorem lorem lorem lorem lorem</p>
-                
-                    Imagens de deletar e alterar-->
-                <!-- <img src="/assets/pencil.png" class="col-start-2 justify-self-center w-8 h-8">
-                    <img src="/assets/trash.png" class="col-start-3 justify-self-center w-8 h-8"> -->
-
-                <!--</div> -->
-
+              
             </div>
 
             <!--Fazendo-->
-            <div class="col-start-5 col-span-3 text-center rounded border border-solid border-black/20 bg-zinc-50 h-screen"
-                id=" fazendo">
+            <div class="col-start-5 col-span-3 text-center rounded border border-solid border-black/20 bg-zinc-50 h-full"
+                id="fazendo">
 
             </div>
 
             <!--Feito-->
-            <div class="col-start-9 col-span-3 text-center rounded border border-solid border-black/20 bg-zinc-50 h-screen"
+            <div class="col-start-9 col-span-3 text-center rounded border border-solid border-black/20 bg-zinc-50 h-full"
                 id="feito">
 
             </div>

@@ -40,11 +40,5 @@ const UsuarioModel = {
 
 };
 
-//testar
-// ( async () => {
-//     const resultado = await UsuarioModel.updateUsuario('1f695ab6-267e-4a80-b51f-a5102675d7ab', 'testeAtualizado', 'testeAtualizado', 'senhaAtualizado');
-//     console.log(resultado);
-// })();
-
 //module.exports exporta somente objeto
 module.exports = UsuarioModel;

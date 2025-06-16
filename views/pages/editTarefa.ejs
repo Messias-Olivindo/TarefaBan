@@ -1,0 +1,37 @@
+<h1 class="p-4 text-4xl font-bold  flex justify-center border-solid border-black rounded">Edite a sua tarefa</h1>
+
+<div id="editTarefa"
+    class="flex flex-col gap-y-3 items-center h-full m-10 mx-50 border border-black/20 rounded-lg p-4 gap-y-6 bg-[#FAFAFA]">
+
+    <input type="text" placeholder="Adicione o Título" id="tituloTarefa" value="<%= tarefa.titulo %>"
+        class="border border-black/20 rounded-lg p-1 bg-white">
+    <input type="text" placeholder="Adicione a descrição" id="descricaoTarefa" value="<%= tarefa.descricao %>"
+        class="border border-black/20 rounded-lg p-1 bg-white">
+
+    <div class="flex gap-x-3">
+        <label for="estadoTarefa"> Adicione o estado da atividade:</label>
+        <select id="estadoTarefa" class="border border-black/20 rounded-lg p-1 bg-white">
+            <option value="<%= tarefa.estado %>">Selecione a nova opção</option>
+            <option value="do">A fazer</option>
+            <option value="doing">Fazendo</option>
+            <option value="done">Feito</option>
+        </select>
+    </div>
+
+    <div class="flex gap-x-3">
+    <label for="importanciaTarefa"> Adicione a importância da atividade:</label>
+    <select id="importanciaTarefa" class="border border-black/20 rounded-lg p-1 bg-white">
+        <option value="<%= tarefa.importancia %>">Selecione a nova opção</option>
+        <option value="alto">Alto</option>
+        <option value="normal">Normal</option>
+        <option value="baixo">Baixo</option>
+    </select>
+    </div>
+    <span>Adicione uma data:
+        <input type="date" id="prazoTarefa" value="<%= tarefa.prazo ? tarefa.prazo.split('T')[0] : '' %>" class="border border-black/20 rounded-lg p-1 bg-white">
+    </span>
+
+    <button onclick="editTarefa('<%= tarefa.id %>')" class="border border-black/20 rounded-lg p-1 bg-[#4E8AD9] text-white px-4">Enviar</button>
+
+</div>
+<script src="/scripts/editTarefa.js"></script>

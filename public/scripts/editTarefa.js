@@ -1,5 +1,4 @@
 function editTarefa(taskId) {
-     console.log("Task ID recebido:", taskId);
 
     let titulo = document.getElementById("tituloTarefa").value;
     let descricao = document.getElementById("descricaoTarefa").value;
@@ -24,7 +23,6 @@ function editTarefa(taskId) {
     })
     .then(resp => resp.json())
     .then(data => {
-        console.log('Tarefa editada:', data);
         window.location.href = '/quadro'; 
     })
     .catch(err => {
