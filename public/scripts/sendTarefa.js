@@ -1,5 +1,5 @@
 //url da api
-const url = `http://localhost:3000/api/tarefa`;
+const url = `http://localhost:3000/api/tarefa/`;
 
 function fetchData() {
     //variável com as informações que vão no post
@@ -30,6 +30,7 @@ function fetchData() {
 
     fetch(request)
         .then(() => {
+            console.log("erro?/")
              window.location.href = "/quadro"; 
         })
         .catch((error) => {

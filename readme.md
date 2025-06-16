@@ -132,3 +132,7 @@ Para rodar o projeto, basta colocar o seguinte comando no terminal da pasta do p
 ````
 npm start
 ````
+
+## 📽️ Demonstração da aplicação
+
+[Assista no YouTube](https://youtu.be/MqsiQAV6Kn0)

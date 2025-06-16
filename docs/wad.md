@@ -10,6 +10,14 @@
 
 [4. WebAPI](#c4)
 
+[5. Decisões técnicas](#c5)
+
+[6. Principais aprendizados e desafios enfrentados](#c6)
+
+[7. Pontos bons e passos futuros](#c7)
+
+[8. Demonstração em vídeo](#c8)
+
 ## <a name='c1'>1. Introdução</a>
 
 &emsp; O **TarefaBan** é uma solução web desenvolvida para auxiliar os usuários a gerenciar suas obrigações, por meio da organização em um quadro KanBan.
@@ -243,7 +251,7 @@ Usado para armazenar e organizar os dados em tabelas relacionais.
 Framework de CSS utilitário.
 Usado para a estilização do projeto por ser mais fácil a sua utilização direta no ejs e pelo seu uso de classes.
 
-## <a name ='c6'>6. Principais aprendizados e desaios enfrentados</a>
+## <a name ='c6'>6. Principais aprendizados e desafios enfrentados</a>
 
 &emsp; A construção da aplicação web foi um caminho repleto de aprendizados e, sobretudo, da aplicação desses conhecimentos. Os principais aprendizados foram relacionados ao uso de tecnologias de desenvolvimento web como o EJS e o Tailwind CSS, além da aplicação de uma arquitetura de software. As principais dificuldades foram o prazo curto de entrega e as muitas funcionalidades que eu planejei colocar mas não foi possível devido a complexidade de adicioná-las, como a possibilidade de arrastar os cards entre as colunas do quadro KanBan. Em relação aos aprendizados e desafios enfrentados durante a elaboração do projeto, realizou-se a seguinte listagem:
 
@@ -264,3 +272,7 @@ Usado para a estilização do projeto por ser mais fácil a sua utilização dir
 ## <a name='c7'>7. Pontos bons e passos futuros</a>
 
 &emsp; Alguns pontos que foram de sucesso foi a estilização da plataforma - que ainda é possível melhorar- e a funcionalidade de editar e criar novas tasks. Como metas futuras, tem-se a possibilidade de mover o card entre as colunas, adição de uma tela de carregamento, implementação das outras entidades da aplicação - categoria, notificação e usuário -, adicionar autentificação de usuários e mudar o nome das variáveis para termos em inglês.
+
+## <a name='c8'>8. Demonstração em vídeo</a>
+
+[Assista no YouTube](https://youtu.be/MqsiQAV6Kn0)
