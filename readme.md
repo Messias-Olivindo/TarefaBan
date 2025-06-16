@@ -2,6 +2,8 @@
 
 &emsp; O TarefaBan é um quadro de tarefas Kanban totalmente personalizado, perfeito para o gerenciamento das suas tarefas de acordo com a sua preferência
 
+<img src="public/assets/example.png">
+
 ## 📂 Estrutura de pastas e arquivos
 
 &emsp; A estrutura de pastas e arquivos do projeto está organizada da seguinte maneira:
